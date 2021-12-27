@@ -21,8 +21,8 @@ rand_color3 = choice(colors_written)
 my_canvas3 = Canvas(root, bg=rand_color3, height=200, width=200)
 my_canvas3.grid(row=1, column=1)
 
-
-my_canvas4 = Canvas(root, bg="#0fff2f", height=200, width=200)
+rand_color4 = choice(colors_written)
+my_canvas4 = Canvas(root, bg=rand_color4, height=200, width=200)
 my_canvas4.grid(row=1, column=0)
 
 root.mainloop()
