@@ -28,5 +28,6 @@ print(rand_color4)
 
 ##testing pushing from pi3 to github
 #changed it again
+#now Dandy from Tea is making the changes, new sheriff in town.
 
 root.mainloop()
