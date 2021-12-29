@@ -40,4 +40,6 @@ print(rand_color4)
 #changed it again
 #now Dandy from Tea is making the changes, new sheriff in town.
 
+#I came in and added this from ol' 32
+
 root.mainloop()
