@@ -36,10 +36,5 @@ my_canvas4 = Canvas(root, bg=rand_color4, height=200, width=200)
 my_canvas4.grid(row=3, column=1)
 print(rand_color4)
 
-##testing pushing from pi3 to github
-#changed it again
-#now Dandy from Tea is making the changes, new sheriff in town.
-
-#I came in and added this from ol' 32
 
 root.mainloop()
