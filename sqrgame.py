@@ -6,7 +6,7 @@ from PIL import ImageTk, Image
 root = Tk()
 
 
-game_name = Label(root, bg="green", text= "Slot Squares", font="FreeMono 40",height=5, width=20)
+game_name = Label(root, bg="green", text= "Slot Squares", font="FreeMono 40",height=1, width=20)
 game_name.grid(row=0, column=0, columnspan=2)
 
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
@@ -21,8 +21,8 @@ my_canvas2.grid(row=1, column=1)
 print(rand_color2)
 
 
-game_name = Label(root, bg="green", text= "Space for Button", font="FreeMono 10",height=5, width=20)
-game_name.grid(row=2, column=0, columnspan=2)
+shuffle_button = Button(root, bg="green", text= "Space for Button", font="FreeMono 10",height=5, width=20)
+shuffle_button.grid(row=2, column=0, columnspan=2)
 
 
 
