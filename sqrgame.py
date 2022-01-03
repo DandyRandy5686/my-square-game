@@ -7,12 +7,57 @@ root = Tk()
 
 root.title("Sqaure Slots")
 
+
 def shuffle_colors():
+    small_winner = False
     my_canvas1['bg']= choice(colors_written)
     my_canvas2['bg']= choice(colors_written)
     my_canvas3['bg']= choice(colors_written)
     my_canvas4['bg']= choice(colors_written)
     print("button pushed")
+    if my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']:
+        print("All four squares match! 1000 points!!")
+        big_winner = True
+    elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']: 
+        print("Squares 1, 2, and 3 match. 100 POINTS!")
+        big_winner = True
+    elif my_canvas1['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
+        print("Squares 1, 3, and 4 match. 100 POINTS!")
+        big_winner = True
+    elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas4['bg']: 
+        print("Squares 1, 2, and 4 match. 100 POINTS!")
+        big_winner = True
+    elif my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
+        print("Squares 1, 2, and 3 match. 100 POINTS!")
+        big_winner = True
+    else:
+        print("***No 3 or 4 sqaure bonus")
+        big_winner = False
+        
+       
+    
+    if my_canvas1['bg'] == my_canvas2['bg'] and big_winner == False:
+        print("Squares 1 and 2 match. 10 POINTS for you!")
+        small_winner = True
+    if my_canvas1['bg'] == my_canvas3['bg'] and big_winner == False:
+        print("Squares 1 and 3 match. 10 POINTS for you!")
+        small_winner = True
+    if my_canvas1['bg'] == my_canvas4['bg'] and big_winner == False:
+        print("Squares 1 and 4 match. 10 POINTS for you!")
+        small_winner = True
+    if my_canvas2['bg'] == my_canvas3['bg'] and big_winner == False:
+        print("Squares 2 and 3 match. 10 POINTS for you!")
+        small_winner = True
+    if my_canvas2['bg'] == my_canvas4['bg'] and big_winner == False:
+        print("Squares 2 and 4 match. 10 POINTS for you!")
+        small_winner = True
+    if my_canvas3['bg'] == my_canvas4['bg'] and big_winner == False:
+        print("Squares 3 and 4 match. 10 POINTS for you!")
+        small_winner = True
+    
+    if small_winner == False:
+        print("and no double square points***")
+        
 
 
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
