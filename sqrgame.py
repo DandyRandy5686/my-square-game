@@ -9,6 +9,8 @@ root.title("Sqaure Slots")
 
 
 def shuffle_colors():
+    global user_display
+    to_display = ""
     small_winner = False
     my_canvas1['bg']= choice(colors_written)
     my_canvas2['bg']= choice(colors_written)
@@ -52,13 +54,13 @@ def shuffle_colors():
         print("Squares 2 and 4 match. 10 POINTS for you!")
         small_winner = True
     if my_canvas3['bg'] == my_canvas4['bg'] and big_winner == False:
-        print("Squares 3 and 4 match. 10 POINTS for you!")
+        to_display ="Squares 3 and 4 match. 10 POINTS for you!"  ########here
         small_winner = True
     
     if small_winner == False:
-        print("and no double square points***")
+        to_display ="and no double square points***"       ######here    you can see I changed from printing to display on screen with this code
         
-
+    user_display['text']= to_display
 
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
 
@@ -95,6 +97,9 @@ rand_color4 = choice(colors_written)
 my_canvas4 = Canvas(root, bg=rand_color4, height=200, width=200)
 my_canvas4.grid(row=3, column=1)
 print(rand_color4)
+
+user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 20",  bg="black", fg="orange")
+user_display.grid(row=4, column=0, columnspan=2)
 
 #lambda : shuffle_colors()
 
