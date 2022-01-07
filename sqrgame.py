@@ -18,47 +18,46 @@ def shuffle_colors():
     my_canvas4['bg']= choice(colors_written)
     print("button pushed")
     if my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']:
-        print("All four squares match! 1000 points!!")
+        to_display= "All four squares match! 1000 points!!"
         big_winner = True
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']: 
-        print("Squares 1, 2, and 3 match. 100 POINTS!")
+        to_display ="Squares 1, 2, and 3 match. 100 POINTS!"
         big_winner = True
     elif my_canvas1['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
-        print("Squares 1, 3, and 4 match. 100 POINTS!")
+        to_display="Squares 1, 3, and 4 match. 100 POINTS!"
         big_winner = True
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas4['bg']: 
-        print("Squares 1, 2, and 4 match. 100 POINTS!")
+        to_display="Squares 1, 2, and 4 match. 100 POINTS!"
         big_winner = True
     elif my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
-        print("Squares 1, 2, and 3 match. 100 POINTS!")
+        to_display="Squares 1, 2, and 3 match. 100 POINTS!"
         big_winner = True
     else:
-        print("***No 3 or 4 sqaure bonus")
         big_winner = False
         
        
     
     if my_canvas1['bg'] == my_canvas2['bg'] and big_winner == False:
-        print("Squares 1 and 2 match. 10 POINTS for you!")
+        to_display="Squares 1 and 2 match. 10 POINTS for you!"
         small_winner = True
     if my_canvas1['bg'] == my_canvas3['bg'] and big_winner == False:
-        print("Squares 1 and 3 match. 10 POINTS for you!")
+        to_display="Squares 1 and 3 match. 10 POINTS for you!"
         small_winner = True
     if my_canvas1['bg'] == my_canvas4['bg'] and big_winner == False:
-        print("Squares 1 and 4 match. 10 POINTS for you!")
+        to_display="Squares 1 and 4 match. 10 POINTS for you!"
         small_winner = True
     if my_canvas2['bg'] == my_canvas3['bg'] and big_winner == False:
-        print("Squares 2 and 3 match. 10 POINTS for you!")
+        to_display="Squares 2 and 3 match. 10 POINTS for you!"
         small_winner = True
     if my_canvas2['bg'] == my_canvas4['bg'] and big_winner == False:
-        print("Squares 2 and 4 match. 10 POINTS for you!")
+        to_display="Squares 2 and 4 match. 10 POINTS for you!"
         small_winner = True
     if my_canvas3['bg'] == my_canvas4['bg'] and big_winner == False:
-        to_display ="Squares 3 and 4 match. 10 POINTS for you!"  ########here
+        to_display ="Squares 3 and 4 match. 10 POINTS for you!"  
         small_winner = True
     
     if small_winner == False:
-        to_display ="and no double square points***"       ######here    you can see I changed from printing to display on screen with this code
+        to_display ="No points this turn"      
         
     user_display['text']= to_display
 
@@ -98,7 +97,7 @@ my_canvas4 = Canvas(root, bg=rand_color4, height=200, width=200)
 my_canvas4.grid(row=3, column=1)
 print(rand_color4)
 
-user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 20",  bg="black", fg="orange")
+user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green")
 user_display.grid(row=4, column=0, columnspan=2)
 
 #lambda : shuffle_colors()
