@@ -32,6 +32,10 @@ def shuffle_colors():
     elif my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 2, and 3 match. 100 POINTS!"
         big_winner = True
+    elif my_canvas1['bg'] == my_canvas2['bg'] and my_canvas3['bg'] == my_canvas4['bg']:
+        to_display="Doubles! 500 points"
+        big_winner = True
+    
     else:
         big_winner = False
         
@@ -56,7 +60,9 @@ def shuffle_colors():
         to_display ="Squares 3 and 4 match. 10 POINTS for you!"  
         small_winner = True
     
-    if small_winner == False:
+    my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']    
+    
+    if small_winner == False and big_winner == False:
         to_display ="No points this turn"      
         
     user_display['text']= to_display
@@ -64,7 +70,7 @@ def shuffle_colors():
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
 
 
-game_name = Label(root, bg="green", text= "Slot Squares", font="FreeMono 40",height=1, width=20)
+game_name = Label(root, bg="green", text= "Slot Squares", font="FreeMono 40",height=1, width=45)
 game_name.grid(row=0, column=0, columnspan=2)
 
 rand_color1 = choice(colors_written)
@@ -78,7 +84,7 @@ my_canvas2.grid(row=1, column=1)
 print(rand_color2)
 
 
-shuffle_button = Button(root, bg="green", text= "Space for Button", command=shuffle_colors,  font="FreeMono 10",height=5, width=20)
+shuffle_button = Button(root, bg="green", text= "SHUFFLE", command=shuffle_colors,  font="FreeMono 20",height=5, width=30)
 shuffle_button.grid(row=2, column=0, columnspan=2)
 
 #lambda : shuffle_colors()
@@ -97,7 +103,7 @@ my_canvas4 = Canvas(root, bg=rand_color4, height=200, width=200)
 my_canvas4.grid(row=3, column=1)
 print(rand_color4)
 
-user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green")
+user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=3, width=45)
 user_display.grid(row=4, column=0, columnspan=2)
 
 #lambda : shuffle_colors()
