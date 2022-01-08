@@ -35,6 +35,13 @@ def shuffle_colors():
     elif my_canvas1['bg'] == my_canvas2['bg'] and my_canvas3['bg'] == my_canvas4['bg']:
         to_display="Doubles! 500 points"
         big_winner = True
+    elif my_canvas1['bg'] == my_canvas4['bg'] and my_canvas2['bg'] == my_canvas3['bg']:
+        to_display="Doubles! 500 points"
+        big_winner = True
+    elif my_canvas1['bg'] == my_canvas3['bg'] and my_canvas2['bg'] == my_canvas4['bg']:
+        to_display="Doubles! 500 points"
+        big_winner = True        
+        
     
     else:
         big_winner = False
