@@ -113,6 +113,9 @@ print(rand_color4)
 user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=3, width=45)
 user_display.grid(row=4, column=0, columnspan=2)
 
+score_label = Label(root, text="The user \n has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=15, width=10)
+score_label.grid(row=0, column=3, rowspan=4)
+
 #lambda : shuffle_colors()
 
 
