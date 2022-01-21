@@ -7,8 +7,10 @@ root = Tk()
 
 root.title("Sqaure Slots")
 
+score = 0
 
 def shuffle_colors():
+    global score
     global user_display
     to_display = ""
     small_winner = False
@@ -19,27 +21,35 @@ def shuffle_colors():
     print("button pushed")
     if my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']:
         to_display= "All four squares match! 1000 points!!"
+        score = score + 1000
         big_winner = True
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']: 
         to_display ="Squares 1, 2, and 3 match. 100 POINTS!"
+        score = score + 100
         big_winner = True
     elif my_canvas1['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 3, and 4 match. 100 POINTS!"
+        score = score + 100
         big_winner = True
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 2, and 4 match. 100 POINTS!"
+        score = score + 100
         big_winner = True
     elif my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 2, and 3 match. 100 POINTS!"
+        score = score + 100
         big_winner = True
     elif my_canvas1['bg'] == my_canvas2['bg'] and my_canvas3['bg'] == my_canvas4['bg']:
         to_display="Doubles! 500 points"
+        score = score + 500
         big_winner = True
     elif my_canvas1['bg'] == my_canvas4['bg'] and my_canvas2['bg'] == my_canvas3['bg']:
         to_display="Doubles! 500 points"
+        score = score + 500
         big_winner = True
     elif my_canvas1['bg'] == my_canvas3['bg'] and my_canvas2['bg'] == my_canvas4['bg']:
         to_display="Doubles! 500 points"
+        score = score + 500
         big_winner = True        
         
     
@@ -50,31 +60,40 @@ def shuffle_colors():
     
     if my_canvas1['bg'] == my_canvas2['bg'] and big_winner == False:
         to_display="Squares 1 and 2 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     if my_canvas1['bg'] == my_canvas3['bg'] and big_winner == False:
         to_display="Squares 1 and 3 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     if my_canvas1['bg'] == my_canvas4['bg'] and big_winner == False:
         to_display="Squares 1 and 4 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     if my_canvas2['bg'] == my_canvas3['bg'] and big_winner == False:
         to_display="Squares 2 and 3 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     if my_canvas2['bg'] == my_canvas4['bg'] and big_winner == False:
         to_display="Squares 2 and 4 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     if my_canvas3['bg'] == my_canvas4['bg'] and big_winner == False:
-        to_display ="Squares 3 and 4 match. 10 POINTS for you!"  
+        to_display ="Squares 3 and 4 match. 10 POINTS for you!"
+        score = score + 10
         small_winner = True
     
-    my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']    
+#     my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']    
     
     if small_winner == False and big_winner == False:
         to_display ="No points this turn"      
         
     user_display['text']= to_display
+    
+    score_label['text']=  ("Your \n score \n is \n" + str(score)) 
 
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
+
 
 
 game_name = Label(root, bg="green", text= "Slot Squares", font="FreeMono 40",height=1, width=45)
