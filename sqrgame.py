@@ -1,17 +1,25 @@
 #!/usr/bin/python3
+from gpiozero import Button
 from random import *
 import requests
 from tkinter import *
 from PIL import ImageTk, Image 
+
+
 root = Tk()
 
 root.title("Sqaure Slots")
 
+
+
 score = 0
+turn = 0
 
 def shuffle_colors():
     global score
     global user_display
+    global turn 
+    turn = turn + 1
     to_display = ""
     small_winner = False
     my_canvas1['bg']= choice(colors_written)
@@ -90,7 +98,17 @@ def shuffle_colors():
         
     user_display['text']= to_display
     
-    score_label['text']=  ("Your \n score \n is \n" + str(score)) 
+    score_label['text']=  ("Your \n score \n is \n" + str(score))
+    turn_label['text']= ("Your \n turn is \n TURN " + str(turn))
+
+def reset():
+    global score
+    global turn
+    score = 0
+    turn = 0
+    score_label['text']=  ("Your \n score \n is \n" + str(score))
+    turn_label['text']= ("Your \n turn is \n TURN " + str(turn))
+    print("reset run")
 
 colors_written = ['orange','blue','red','purple', 'green', 'yellow', 'black']
 
@@ -113,6 +131,9 @@ print(rand_color2)
 shuffle_button = Button(root, bg="green", text= "SHUFFLE", command=shuffle_colors,  font="FreeMono 20",height=5, width=30)
 shuffle_button.grid(row=2, column=0, columnspan=2)
 
+
+
+
 #lambda : shuffle_colors()
 #This also works with the command key pair, but I don't understand it so I'll use shuffle colors.
 #I remember in other contexts, the lambda was used because otherwise we couldn't pass anything in when we ran the funciton. 
@@ -132,8 +153,15 @@ print(rand_color4)
 user_display = Label(root, text="The user has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=3, width=45)
 user_display.grid(row=4, column=0, columnspan=2)
 
-score_label = Label(root, text="The user \n has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=15, width=10)
-score_label.grid(row=0, column=3, rowspan=4)
+score_label = Label(root, text="The user \n has: \n 0 POINTS", font="FreeMono 40",  bg="black", fg="green", height=7, width=10)
+score_label.grid(row=0, column=3, rowspan=2)
+
+turn_label = Label(root, text="The user \n is on \n TURN 0", font="FreeMono 40",  bg="black", fg="green", height=7, width=10)
+turn_label.grid(row=2, column=3, rowspan=2)
+
+reset_button = Button(root, bg="green", text= "RESET", command=reset,  font="FreeMono 20",height=3, width=10)
+reset_button.grid(row=4, column=3, columnspan=1)
+
 
 #lambda : shuffle_colors()
 
