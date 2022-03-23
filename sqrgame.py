@@ -8,7 +8,7 @@ from PIL import ImageTk, Image
 
 root = Tk()
 
-root.title("Sqaure Slots")
+root.title("Slot Squares")
 
 
 
