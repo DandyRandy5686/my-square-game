@@ -6,6 +6,19 @@ from tkinter import *
 from PIL import ImageTk, Image 
 
 
+my_button = Button(2)
+
+def test_function():
+    print("function has been called")
+
+#while True:
+#    print("Waiting for press")
+#    my_button.wait_for_press()
+#    test_function()
+#    my_button.wait_for_release()
+
+
+
 root = Tk()
 
 root.title("Slot Squares")
