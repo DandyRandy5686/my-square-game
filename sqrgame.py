@@ -1,14 +1,23 @@
 #!/usr/bin/python3
 from gpiozero import Button
+from gpiozero import Button as But #this had to be changed from Button to But so that it didn't conflict
+#with the Tkinter class called Button
 from random import *
 import requests
 from tkinter import *
 from PIL import ImageTk, Image 
 
 
+
+my_button = But(2)
+
+
+
 root = Tk()
 
 root.title("Slot Squares")
+
+
 
 
 
@@ -162,8 +171,16 @@ turn_label.grid(row=2, column=3, rowspan=2)
 reset_button = Button(root, bg="green", text= "RESET", command=reset,  font="FreeMono 20",height=3, width=10)
 reset_button.grid(row=4, column=3, columnspan=1)
 
+
 #turd
 #lambda : shuffle_colors()
 
+
+#This is basically the only thing added within the tkinter loop in order
+# to create the button functionality. Outside of the loop I also defined the GPIO pin for the button
+#and at the very beginning I imported button module/package? I am not sure on the correct terminology.
+my_button.when_pressed = shuffle_colors
+#note that there were a bunch of different options with subtle nuanced differences for pushing
+#the button. There is "is_pressed" attribute, "wait_for_press" method, and "when_pressed" method. 
 
 root.mainloop()
