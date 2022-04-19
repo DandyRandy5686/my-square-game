@@ -184,3 +184,5 @@ my_button.when_pressed = shuffle_colors
 #the button. There is "is_pressed" attribute, "wait_for_press" method, and "when_pressed" method. 
 
 root.mainloop()
+
+#added this to test master branch 4/19
