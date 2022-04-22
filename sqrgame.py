@@ -103,7 +103,8 @@ def shuffle_colors():
 #     my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']    
     
     if small_winner == False and big_winner == False:
-        to_display ="No points this turn"      
+        to_display ="No squares match. Lose 10 points."
+	score = score - 10
         
     user_display['text']= to_display
     
