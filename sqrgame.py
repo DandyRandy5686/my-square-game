@@ -104,7 +104,7 @@ def shuffle_colors():
     
     if small_winner == False and big_winner == False:
         to_display ="No squares match. Lose 10 points."
-	score = score - 10
+        score = score - 10
         
     user_display['text']= to_display
     
