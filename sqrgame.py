@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-from gpiozero import Button
+from gpiozero import Button, Buzzer, LED
 from gpiozero import Button as But #this had to be changed from Button to But so that it didn't conflict
 #with the Tkinter class called Button
+from time import sleep
 from random import *
 import requests
 from tkinter import *
@@ -10,7 +11,7 @@ from PIL import ImageTk, Image
 
 
 my_button = But(2)
-
+my_buzzer = Buzzer(4)
 
 
 root = Tk()
@@ -23,6 +24,52 @@ root.title("Slot Squares")
 
 score = 0
 turn = 0
+
+def point_scored_buzzer():
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+
+
+def one_hund_buzzer():
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+
+def five_hund_buzzer():
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+
+def thousand_buzzer():
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    sleep(.25)
+    my_buzzer.on()
+    sleep(.25)
+    my_buzzer.off()
+    
 
 def shuffle_colors():
     global score
@@ -40,34 +87,42 @@ def shuffle_colors():
         to_display= "All four squares match! 1000 points!!"
         score = score + 1000
         big_winner = True
+        housand_buzzer()
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']: 
         to_display ="Squares 1, 2, and 3 match. 100 POINTS!"
         score = score + 100
         big_winner = True
+        one_hund_buzzer()
     elif my_canvas1['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 3, and 4 match. 100 POINTS!"
         score = score + 100
         big_winner = True
+        one_hund_buzzer()
     elif my_canvas1['bg'] == my_canvas2['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 2, and 4 match. 100 POINTS!"
         score = score + 100
         big_winner = True
+        one_hund_buzzer()
     elif my_canvas2['bg'] == my_canvas3['bg'] == my_canvas4['bg']: 
         to_display="Squares 1, 2, and 3 match. 100 POINTS!"
         score = score + 100
         big_winner = True
+        one_hund_buzzer()
     elif my_canvas1['bg'] == my_canvas2['bg'] and my_canvas3['bg'] == my_canvas4['bg']:
         to_display="Doubles! 500 points"
         score = score + 500
         big_winner = True
+        five_hund_buzzer()
     elif my_canvas1['bg'] == my_canvas4['bg'] and my_canvas2['bg'] == my_canvas3['bg']:
         to_display="Doubles! 500 points"
         score = score + 500
         big_winner = True
+        five_hund_buzzer()
     elif my_canvas1['bg'] == my_canvas3['bg'] and my_canvas2['bg'] == my_canvas4['bg']:
         to_display="Doubles! 500 points"
         score = score + 500
-        big_winner = True        
+        big_winner = True
+        five_hund_buzzer()
         
     
     else:
@@ -100,7 +155,11 @@ def shuffle_colors():
         score = score + 10
         small_winner = True
     
-#     my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']    
+#     my_canvas1['bg'] == my_canvas2['bg'] == my_canvas3['bg']
+    
+    if small_winner == True:
+        print("small winner")
+        point_scored_buzzer()
     
     if small_winner == False and big_winner == False:
         to_display ="No squares match. Lose 10 points."
